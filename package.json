@@ -11,9 +11,6 @@
   "author": "Jesus Reza",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
   "devDependencies": {
     "nodemon": "^3.1.14"
   }
