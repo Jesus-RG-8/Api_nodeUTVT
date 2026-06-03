@@ -1,17 +1,31 @@
-/*import express from 'express';
-const route = express.Router();
-import { createUser } from '../controllers/userController.js';
-
-route.post('/', createUser);
-
-export default route;
-*/
 import express from "express";
-import { crearUsuario, obtenerUsuarios } from "../controllers/Users_controller.js";
+import {
+  crearUsuario,
+  obtenerUsuarios
+} from "../controllers/Users_controller.js";
 
 const route = express.Router();
 
-route.post("/", crearUsuario);
+/**
+ * @swagger
+ * /usuarios:
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios
+ */
 route.get("/", obtenerUsuarios);
+
+/**
+ * @swagger
+ * /usuarios:
+ *   post:
+ *     summary: Crear un usuario
+ *     responses:
+ *       201:
+ *         description: Usuario creado correctamente
+ */
+route.post("/", crearUsuario);
 
 export default route;

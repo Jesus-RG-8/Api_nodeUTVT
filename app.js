@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoutes from "./routes/Users.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerspect from "./swagger.js";
 
 dotenv.config();
 
@@ -14,6 +16,8 @@ mongoose.connect(process.env.MONGODB_URI).then(() =>
   );
 
 app.use(express.json());
+
+app.use("/api-docs",swaggerUi.serve, swaggerUi.setup(swaggerspect));
 
 app.use("/usuarios", userRoutes);
 
